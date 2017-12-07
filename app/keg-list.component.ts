@@ -24,7 +24,7 @@ export class KegListComponent {
   clickSellKeg(keg: Keg) {
     this.sendSellKeg.emit(keg);
   }
-  
+
   clickEditKeg(keg: Keg) {
     this.sendEditKeg.emit(keg);
   }

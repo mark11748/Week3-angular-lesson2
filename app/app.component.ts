@@ -13,6 +13,10 @@ import { Keg } from './Keg.model';
     <edit-keg
       [edittingKeg]="masterEdittingKeg"
     ></edit-keg>
+    <new-keg
+      (sendAddKeg) = "addKeg($event)"
+    >
+    </new-keg>
   </div>
   `
 })
@@ -20,18 +24,17 @@ import { Keg } from './Keg.model';
 export class AppComponent {
   masterEdittingKeg: Keg;
 
-  masterKegList: Keg[] = [
-    new Keg("Budweiser","Anheuser-Busch",4,6),
-    new Keg("Heineken","Heineken Holding",5,8),
-    new Keg("Blue Moon","MillerCoors",6,12)
-  ]
+  masterKegList: Keg[] = Keg.getAll();
 
   sellKeg(keg: Keg) {
     this.masterKegList.length > 1 ? this.masterKegList.splice(keg.id, 1) : this.masterKegList = [];
   }
 
   editKeg(keg: Keg) {
-    console.log(keg)
     this.masterEdittingKeg = keg;
+  }
+  addKeg(keg)
+  {
+    keg.save();
   }
 }
