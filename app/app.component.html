@@ -1,9 +1,10 @@
 <div class="container">
+  {{Keg}}
   <div *ngFor="let keg of kegs" class="panel pnl-default">
     <div class = "pnl-header">
       <h3>{{keg.name}}</h3>
     </div>
     <p>Status: {{keg.vol / keg.maxVol * 100}}%</p>
-    <p>Alcohol Content: {{keg.abv}}%
+    <p>Alcohol Content: {{keg.abv}}%</p>
   </div>
 </div>
